@@ -1,38 +1,33 @@
-
 let factInput = document.getElementById('factInput')
 let factBtn = document.getElementById('factBtn')
 let factDiv = document.getElementById('factDiv')
 let factText = document.getElementById('factText')
 let factRandom = document.getElementById('factRandom')
 
-function getFact() {
+const sentHttpRequest = (method, url) => {
   let fact = factInput.value
   let xhr = new XMLHttpRequest()
 
-  xhr.open('GET', 'http://numbersapi.com/'+fact)
+  xhr.open(method, url)
 
-  xhr.onload = function() {
-    if (this.status === 200) {
+  xhr.onload = () => {
+    if (xhr.status === 200) {
       factDiv.style.display = 'block'
-      factText.innerText = this.responseText
+      factText.innerText = xhr.response
     }
   }
 
   xhr.send()
 }
+const getFact = () => {
+  const fact = factInput.value
+  if(isNaN(fact) || fact === '') return
+  sentHttpRequest('GET', 'http://numbersapi.com/' + fact)
+}
 
-function randomFact() {
+const randomFact = () => {
   factInput.value = ''
-  let xhr = new XMLHttpRequest()
-
-  xhr.open('GET', 'http://numbersapi.com/random/trivia')
-
-  xhr.onload = function () {
-    factDiv.style.display = 'block'
-    factText.innerText = this.responseText
-  }
-
-  xhr.send()
+  sentHttpRequest('GET', 'http://numbersapi.com/random/trivia')
 }
 
 factInput.addEventListener('input', getFact)
