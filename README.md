@@ -1,7 +1,7 @@
 # num-api-ajax
 
 A dynamic HTML, CSS, and JavaScript solo project.
-Updated version of my old [Chucknorris] API project with better practices. Enjoy!
+Updated version of my old [Chucknorris](https://github.com/do-jonathan4/ajax-project) API project with better practices. Enjoy!
 
 ## About this app
 A web application for those who want to look at interesting facts about numbers
