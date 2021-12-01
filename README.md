@@ -1,4 +1,4 @@
-# num-api-ajax
+# num-api-fetch
 
 A dynamic HTML, CSS, and JavaScript solo project.
 
